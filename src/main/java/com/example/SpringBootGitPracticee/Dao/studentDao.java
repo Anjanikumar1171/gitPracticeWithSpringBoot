@@ -1,4 +1,4 @@
-package Dao;
+package com.example.SpringBootGitPracticee.Dao;
 
 import org.springframework.stereotype.Repository;
 
