@@ -1,8 +1,10 @@
 package com.example.SpringBootGitPracticee.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import com.example.SpringBootGitPracticee.Dao.StudentRepo;
@@ -31,6 +33,15 @@ public class StudentService {
 		
 		
 		return byId;
+	}
+
+	@Cacheable("students")
+	public List<Student> getAll() {
+		
+		
+		List<Student> all=repo.findAll();
+
+		return all;
 	}
 	
 	

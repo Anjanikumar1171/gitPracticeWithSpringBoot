@@ -1,5 +1,6 @@
 package com.example.SpringBootGitPracticee.Controller;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,21 @@ public class StudentController {
 	
 	@Autowired
 	StudentService service;
+	
+	
+	
+	//getAll Data
+	@GetMapping("/getAllData")
+	public ResponseEntity<List<Student>> getAllStudentDetails(){
+		
+		
+		List<Student> all=service.getAll();
+		
+		return ResponseEntity.ok(all);
+		
+	}
+	
+	
 	
 	//method will start from here okkk
 	
