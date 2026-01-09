@@ -81,7 +81,6 @@ public class StudentController {
 		
 		Student updateEntity =service.update(id, data);
 		
-		// something
 		return ResponseEntity.ok(updateEntity);
 		
 		
