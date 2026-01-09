@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -63,13 +64,27 @@ public class StudentController {
 	//Create Student records this method
 	
 	@PostMapping("/create")
-	public ResponseEntity<Student> create(@RequestBody Student info){
+	public ResponseEntity<Student> create(@RequestBody Student info){// this @RequestBody annoation use for convert incoming JASON  in to java object
 		
 		System.out.println("working>>>>-------");
 		Student saved=service.save(info);
 		
 		
 		return ResponseEntity.ok(saved);
+		
+	}
+	
+	
+	@PutMapping("/update/{id}")
+	public ResponseEntity<Student> updateData(@PathVariable Long id, @RequestBody Student data){
+		
+		
+		Student updateEntity =service.update(id, data);
+		
+		// something
+		return ResponseEntity.ok(updateEntity);
+		
+		
 		
 	}
 	
